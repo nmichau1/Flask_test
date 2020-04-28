@@ -1,6 +1,39 @@
 {% extends "base.html" %}
 
 {% block content %}
+<style>
+    #map{ height: 100% }
+</style>
+
+<div id="map"></div>
+<script>
+
+    // initialize the map
+    var map = L.map('map').setView([37.780813, -122.404750], 17);
+  
+    // load a tile layer
+    L.tileLayer('https://tile.thunderforest.com/transport-dark/{z}/{x}/{y}.png?apikey=c89aeae3070f4eb5b84373486927435e',
+      {
+       
+        maxZoom: 20,
+        minZoom: 3
+      }).addTo(map);
+      
+      var polylinePoints =
+      
+      [
+          ["37.781814", "-122.404740"],
+          ["48.8566", "-2.3522"],
+          ["37.781489", "-122.404949"],
+          [43.6532, -79.3832],
+          [37.780012, -122.404827]
+        ];            
+        
+        var polyline = L.polyline(polylinePoints).addTo(map);
+  
+    </script>
+    {% for Coord in Coordinates %}
+    <h1> {{Coord}} </h1>
     <h1> Hi, {{ user.username }}! </h1>
     {% for post in posts %}
     <div><p>{{ post.author.username }} says: <b>{{ post.body }}</b> </p></div>

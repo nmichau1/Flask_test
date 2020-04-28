@@ -1,10 +1,11 @@
 from flask import render_template
 from app import app
-
+from model_joins import Coordinates
 @app.route('/')
 @app.route('/index')
 def index():
     user = {'username': 'Miguel'}
+    Coordinates = Coordinates
 
     posts = [
         {
@@ -17,4 +18,4 @@ def index():
             'body': 'The Avengers movie was so cool!'
         }
     ]
-    return render_template('index.html', title = 'Home', user=user, posts= posts)
+    return render_template('index.html', title = 'Home', user=user, posts= posts, Coordinates = Coordinates)

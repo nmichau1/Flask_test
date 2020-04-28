@@ -4,6 +4,22 @@ from sqlalchemy.orm import sessionmaker
 from sqlalchemy import Column, String, Integer
 
 
+engine = create_engine('sqlite:///Nick:mydatabasetest:', echo = True)
+Base = declarative_base()
+class FlightData(Base):
+        __tablename__ = "JFK_Flight_Data"
+
+        id = Column(Integer, primary_key=True)
+        flight_date =              Column(String)
+        flight_status =            Column(String)
+        departure_airport =        Column(String)
+        departure_timezone =       Column(String)
+        departure_airport_iata =   Column(String)
+        departure_time_scheduled = Column(String)
+        arrival_airport =          Column(String)
+        arrival_airport_iata =     Column(String)
+        arrival_timezone =         Column(String)
+        arrival_time_scheduled =   Column(String)
 
 
 
@@ -20,24 +36,7 @@ def add_flight(
             arrival_timezone,
             arrival_time_scheduled
             ):
-    engine = create_engine('sqlite:///Nick:mydatabasetest:', echo = True)
-    Base = declarative_base()
-
-    class FlightData(Base):
-        __tablename__ = "JFK_Flight_Data"
-
-        id = Column(Integer, primary_key=True)
-        flight_date =              Column(String)
-        flight_status =            Column(String)
-        departure_airport =        Column(String)
-        departure_timezone =       Column(String)
-        departure_airport_iata =   Column(String)
-        departure_time_scheduled = Column(String)
-        arrival_airport =          Column(String)
-        arrival_airport_iata =     Column(String)
-        arrival_timezone =         Column(String)
-        arrival_time_scheduled =   Column(String)
-
+    
 
     #Base.metadata.create_all(engine)
     #print(FlightData.__table__)
