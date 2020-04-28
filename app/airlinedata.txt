@@ -14,14 +14,13 @@
         "airport":"John F Kennedy International",
         "timezone":"America\/New_York",
         "iata":"JFK",
-        "icao":"KJFK",
         "scheduled":"2020-04-28T02:10:00+00:00",    
     "arrival":
         {"airport":"Norman Manley",
     "timezone":"America\/Jamaica",
     "iata":"KIN",
-    "icao":"MKJP",
     "scheduled":"2020-04-28T05:00:00+00:00",
     
+
 
 
